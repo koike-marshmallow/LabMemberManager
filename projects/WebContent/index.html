@@ -10,10 +10,15 @@
         var formData = $('#csprinter_form').serializeJson();
         MultiplePrinter.execute(formData, {
           callback: function(data) {
-            $('#csprinterReply').text(data);
+            $('#csprinterReply').text(data.length);
             $('#error_message').text("");
           },
           errorHandler: updateErrorMessage
+        });
+        MultiplePrinter.helloWorld("ryokun", {
+        	callback: function(str){
+        		$("#greet").text(str);
+        	}
         });
       }
       function updateErrorMessage(message, exception){
@@ -33,6 +38,7 @@
       Reply: <span id="csprinterReply"></span>
     </p><p>
       <span id="error_message" class="error"></span>
+      <span id="greet"></span>
     </p>
   </body>
 </html>
