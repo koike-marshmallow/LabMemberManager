@@ -16,6 +16,14 @@
           errorHandler: updateErrorMessage
         });
       }
+      function getData(){
+    	  MultiplePrinter.getMemberInfoList({
+    		  callback: function(data){
+    			  $("#viewlen").text(data.length);
+    			  $("#view").text(data[0].name);
+    		  }
+    	  });
+      }
       function updateErrorMessage(message, exception){
         $('#error_message').text(message);
         $('#csprinterReply').text("");
@@ -34,5 +42,8 @@
     </p><p>
       <span id="error_message" class="error"></span>
     </p>
+    <hr>
+    <button type="button" onclick="getData()">取得</button><span id="viewlen"></span>
+    <div id="view"></div>
   </body>
 </html>

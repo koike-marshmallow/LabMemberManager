@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.ac.oit.igakilab.marsh.smanager.MemberInfo;
+import jp.ac.oit.igakilab.marsh.smanager.MemberInfoBean;
 import jp.ac.oit.igakilab.marsh.smanager.StateManager;
 
 public class MultiplePrinter {
@@ -52,6 +53,20 @@ public class MultiplePrinter {
 					inf.getUpdateDate().getTime().getTime()
 				)
 			);
+		}
+
+		return m_list;
+	}
+
+
+	public List<MemberInfoBean> getMemberInfoList(){
+		List<MemberInfoBean> m_list = new ArrayList<>();
+		int list_len;
+
+		list.updateStateList();
+		list_len = list.getMemberNum();
+		for(int i=0; i<list_len; i++){
+			m_list.add(new MemberInfoBean(list.getMemberInfo(i)));
 		}
 
 		return m_list;

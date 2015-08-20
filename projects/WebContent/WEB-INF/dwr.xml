@@ -8,5 +8,6 @@
       <param name="class" value="jp.ac.oit.igakilab.dwr.multiple.MultiplePrinter"/>
     </create>
     <convert converter="bean" match="jp.ac.oit.igakilab.dwr.multiple.*" />
+    <convert converter="bean" match="jp.ac.oit.igakilab.marsh.smanager.*" />
   </allow>
 </dwr>

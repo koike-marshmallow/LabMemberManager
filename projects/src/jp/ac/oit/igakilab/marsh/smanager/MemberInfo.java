@@ -1,5 +1,7 @@
 package jp.ac.oit.igakilab.marsh.smanager;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MemberInfo{
@@ -59,11 +61,12 @@ public class MemberInfo{
 		update_date = Calendar.getInstance();
 	}
 
-	public boolean checkDate(Calendar c0){
-		if( update_date.compareTo(c0) > 0 ){
-			return true;
-		}else{
-			return false;
-		}
+	public String toString(){
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return String.format("%s (%d, %s)",
+			name,
+			state,
+			df.format(update_date)
+		);
 	}
 }
